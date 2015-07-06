@@ -1,0 +1,24 @@
+{
+  "name": "Braintree-research",
+  "version": "1.0.0",
+  "description": "A research about Braintree-payments service",
+  "main": "client.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/poedev/poe-braintree.git"
+  },
+  "keywords": [
+    "Braintree",
+    "payments="
+  ],
+  "author": "Poe nguyen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/poedev/poe-braintree/issues"
+  },
+  "homepage": "https://github.com/poedev/poe-braintree"
+}
