@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Braintree TESTING</title>
+</head>
+<body>
+  <form action="/payment" method="post">
+    <div id="payment-form"></div>
+    <input type="submit" value="pay $3"/>
+  </form>
+</body>
+</html>
+
+<script src="js/jquery.min.js"></script>
+<script src="https://js.braintreegateway.com/v2/braintree.js"></script>
+
+<script>
+  var clientToken = '',
+      paymentMethodNonce = '';
+  var setupBraintree  = function(){
+    braintree.setup(clientToken, 'dropin', {
+      container: 'payment-form',
+      onError: function(err){
+        console.log('ERROR OCCURE', arguments);
+        console.log(err);
+      },
+      onReady: function(data){
+        console.log('READY', arguments);
+      },
+      onPaymentMethodReceived: function(meth){
+        payRequest(meth.nonce);
+      }
+    });
+  }
+
+  $.ajax({
+    url: '/client_token',
+    method: 'GET',
+    success: function(token){
+      console.log('DONE', token);
+      $('body').append(token);
+      clientToken = token;
+      setupBraintree();
+    }
+  });
+
+  var payRequest = function(nonce){
+    console.log(clientToken);
+    $.ajax({
+      url: '/payment',
+      method: 'POST',
+      data: {payment_method_nonce: nonce},
+      success: function(data){
+        console.log(data);
+      }
+    });
+  };
+
+  var pay = function(){
+    var method = $('input')
+  }
+</script>

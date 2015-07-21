@@ -20,5 +20,10 @@
   "bugs": {
     "url": "https://github.com/poedev/poe-braintree/issues"
   },
-  "homepage": "https://github.com/poedev/poe-braintree"
+  "homepage": "https://github.com/poedev/poe-braintree",
+  "dependencies": {
+    "body-parser": "^1.13.2",
+    "braintree": "^1.26.0",
+    "express": "^4.13.1"
+  }
 }
